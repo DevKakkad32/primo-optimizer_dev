@@ -541,7 +541,7 @@ class Campaign:
         col_names = self.projects[1]._col_names
         # the priority score must have been previously computed
         assert hasattr(col_names, "priority_score")
-        columns_to_export = [
+        columns_to_check = [
             col_names.well_id,
             col_names.operator_name,
             col_names.priority_score,
@@ -555,12 +555,13 @@ class Campaign:
             col_names.compliance,
             col_names.violation,
             col_names.incident,
+            col_names.hospitals,
+            col_names.schools,
+            # Add more columns as needed
         ]
-        # add hospitals and schools if provided
-        if col_names.hospitals is not None:
-            columns_to_export.append(col_names.hospitals)
-        if col_names.schools is not None:
-            columns_to_export.append(col_names.schools)
+
+        # Append only those columns that are not None
+        columns_to_export = [col for col in columns_to_check if col is not None]
 
         # add the project data
         start_row = 0

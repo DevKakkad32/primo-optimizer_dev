@@ -22,7 +22,7 @@ from pyomo.common.config import Bool, NonNegativeFloat, NonNegativeInt
 FEASIBILITY_TOLERANCE = 1e-6  # Optimization Feasibility tolerance
 EARTH_RADIUS = 3959.0  # Earth's radius in Miles
 CENSUS_YEAR = 2020
-CONVERSION_FACTOR = 5.614583  # convert Bbl of oil to Mcf of gas
+CONVERSION_FACTOR = 6  # convert Bbl of oil to Mcf of gas
 BING_MAPS_BASE_URL = "http://dev.virtualearth.net/REST/V1/Routes/Driving"
 # Fixed start coordinates in elevation utility to get nearest road point
 START_COORDINATES = (40.44, -79.94)
