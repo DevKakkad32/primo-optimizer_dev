@@ -519,27 +519,27 @@ def add_project_markers_to_map(
     -------
     None
     """
-    gas_index = selected.columns.get_loc("Gas [Mcf/Year]") + 1
-    oil_index = selected.columns.get_loc("Oil [bbl/Year]") + 1
-    score_index = selected.columns.get_loc("Priority Score [0-100]") + 1
+    # gas_index = selected.columns.get_loc("Gas [Mcf/Year]") + 1
+    # oil_index = selected.columns.get_loc("Oil [bbl/Year]") + 1
+    # score_index = selected.columns.get_loc("Priority Score [0-100]") + 1
     for row in selected.itertuples():
-        if pd.isna(row.Project):
-            continue
-        gas = row[gas_index]
-        oil = row[oil_index]
-        cluster = "Project: " + str(row.Project)
-        score = row[score_index]
-        popup_text = (
-            f"Oil [bbl/day]: {oil}<br>Gas [Mcf/day]: {gas}<br>"
-            f"Candidate Project: {cluster}<br>Score: {score}<br>"
-        )
+        # if pd.isna(row.Project):
+        #     continue
+        # gas = row[gas_index]
+        # oil = row[oil_index]
+        # cluster = "Project: " + str(row.Project)
+        # score = row[score_index]
+        # popup_text = (
+        #     f"Oil [bbl/day]: {oil}<br>Gas [Mcf/day]: {gas}<br>"
+        #     f"Candidate Project: {cluster}<br>Score: {score}<br>"
+        # )
         color = cluster_colors.get(
             row.Project, "gray"
         )  # Use 'gray' if cluster not in color scheme
         folium.CircleMarker(
             location=[row.Latitude, row.Longitude],
             radius=5,
-            popup=popup_text,
+            # popup=popup_text,
             fill=True,
             color=color,
         ).add_to(map_obj)
